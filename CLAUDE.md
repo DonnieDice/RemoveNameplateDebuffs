@@ -11,10 +11,11 @@ RND (Remove Nameplate Debuffs) is a professional World of Warcraft addon that re
 - **data/core.lua**: Main addon functionality with advanced features
 - **data/locales.lua**: Multi-language support (English, Russian, German, French, Spanish)
 - **images/icon.tga**: Addon icon displayed in all output
-- **RemoveNameplateDebuffs.toc**: TOC file for retail WoW (Interface: 110105)
-- **RemoveNameplateDebuffs_Cata.toc**: TOC file for Classic Cataclysm (Interface: 40402)
-- **RemoveNameplateDebuffs_Vanilla.toc**: TOC file for Classic WoW (Interface: 11507)
-- **RemoveNameplateDebuffs_Mists.toc**: TOC file for Mists of Pandaria (Interface: 50500)
+- **RemoveNameplateDebuffs.toc**: single multi-interface TOC covering Vanilla through Retail (`## Interface: 11508,40402,50503,110207,120000,120001,120007` — the file is authoritative). The old per-flavor `_Cata`/`_Vanilla`/`_Mists` TOCs no longer exist.
+
+## RGX-Framework Dependency
+
+RND declares `## RequiredDeps: RGX-Framework` and uses the shared `_G.RGXFramework` instance for events, timers, minimap, and slash commands. Do not add manual event frames, raw `C_Timer`, or raw `SLASH_X` registration — route through `RGX:RegisterEvent`, `RGX:After`/`RGX:Every`, and `RGX:RegisterSlashCommand`. See `../RGX-Framework/CLAUDE.md` for framework rules and roadmap.
 
 ## Commands
 
